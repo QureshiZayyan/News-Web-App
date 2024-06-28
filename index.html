@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyNews App</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body class="font-Poppins bg-bodybcg">
+
+    <header>
+        <nav class="flex justify-between items-center px-[20px] py-[5px] shadow-md bg-white">
+            <div class="heading">
+                <h2 class="text-2xl font-extrabold cursor-pointer">NewsWeb</h2>
+            </div>
+
+            <div class="topics">
+                <a href="" class="text-black font-extrabold mr-[8px]">Cricket</a>
+                <a href="#" class="text-black font-extrabold mr-[8px]">Politics</a>
+                <a href="#" class="text-black font-extrabold mr-[8px]">Weather</a>
+                <a href="#" class="text-black font-extrabold mr-[8px]">AI</a>
+            </div>
+
+            <div class="search">
+                <form>
+                    <input type="text" name="" id="input" class="w-[250px] py-[3.5px] px-[3px] bg-black text-white rounded-md" placeholder="Search News">
+                    <button id="btn" class="bg-black text-white px-[10px] py-[3px] rounded-md">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <div id="cards-container" class="bg-red-900 flex flex-wrap justify-center my-[100px]"></div>
+
+    <template id="news-card">
+        <div id="card" class="w-[20vw] my-[30px] mx-[10px]">
+            <div id="card-img" class="w-full">
+                <img src="" alt="" id="newsimg" class="h-[130px] rounded-t-[6px] w-full">
+            </div>
+            <div id="news-content" class="h-[180px] px-[5px] py-[5px] bg-slate-50 text-black rounded-b-[6px] font-extrabold">
+                <h2 id="news-desc"></h2>
+                <a href="" class="link inline-block hover:underline hover:text-blue-700 my-[2px]" target="_blank"
+                    id="newslink"></a>
+                <p id="publishedat" class=""></p>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
