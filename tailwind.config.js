@@ -3,14 +3,14 @@ module.exports = {
   content: ["./*.{html,js}"],
   theme: {
     extend: {
-      fontFamily: {
-        Poppins: ['Poppins', 'sans-serif'],
+      // fontFamily: {
+      //   Poppins: ['Montserrat', 'sans-serif'],
+      // },
+      backgroundColor: {
+        bodybcg: 'rgb(233, 227, 227',
       },
-      backgroundColor:{
-        bodybcg:'rgb(233, 227, 227',
-      },
-      boxShadow:{
-        'bs':'0px 8px 16px rgba(0, 0, 0, 0.2)'
+      boxShadow: {
+        'bs': '0px 8px 16px rgba(0, 0, 0, 0.2)'
       }
     },
   },
