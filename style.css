@@ -4,8 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: rgb(237, 237, 237);
+body{
+background-color:rgb(245, 239, 239);
 }
 
 .shadow-bs {
@@ -39,4 +39,9 @@ body {
 
 #input {
   background-color: rgb(240, 237, 237);
+}
+
+.carousel-item img{
+  height: 20vh;
+  /* object-fit: cover; */
 }

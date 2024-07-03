@@ -7,11 +7,11 @@ module.exports = {
       //   Poppins: ['Montserrat', 'sans-serif'],
       // },
       backgroundColor: {
-        bodybcg: 'rgb(233, 227, 227',
+        'bodybcg': 'rgb(233, 227, 227',
       },
       boxShadow: {
         'bs': '0px 8px 16px rgba(0, 0, 0, 0.2)'
-      }
+      },
     },
   },
   plugins: [],
