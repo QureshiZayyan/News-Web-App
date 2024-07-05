@@ -21,28 +21,6 @@ const FetchData = async (query) => {
     }
 }
 
-const SearchQuery = () => {
-
-    document.getElementById('btn').addEventListener('click', async (e) => {
-        e.preventDefault();
-        if (!Input.value) return;
-        cardsContainer.innerHTML = '';
-        const response = await FetchData(Input.value.trim());
-        if (response.articles[0] == null) {
-            cardsContainer.textContent = 'No Result';
-        }
-        else {
-            result.textContent = `Showing results for ${Input.value}`;
-            FillDataInCard(response);
-        }
-    });
-}
-
-const truncateText = (text, maxLength) => {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
-}
-
 const FillDataInCard = (response) => {
 
 
@@ -67,6 +45,36 @@ const FillDataInCard = (response) => {
     })
 }
 
+const SearchQuery = () => {
+    document.getElementById('btn').addEventListener('click', async (e) => {
+        e.preventDefault();
+        if (!Input.value) return;
+
+        cardsContainer.innerHTML = '';
+        try {
+            const response = await FetchData(Input.value.trim());
+
+            if (!response || response.articles.length === 0) {
+                result.textContent = `No results for ${Input.value.trim()}`;
+                return;
+            }
+
+            result.textContent = `Showing results for ${Input.value.trim()}`;
+            FillDataInCard(response);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            // Handle specific error cases here, e.g., showing an error message to the user
+            result.textContent = 'Error fetching data. Please try again later.';
+        }
+    });
+}
+
+
+const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+}
+
 const ReloadPage = () => {
 
     document.getElementById('reload').addEventListener('click', () => {
@@ -84,13 +92,13 @@ window.addEventListener('DOMContentLoaded', async () => {
     FillDataInCard(data);
 })
 
-document.addEventListener('load', function () {
-    let myCarousel = document.getElementById('carouselExample');
-    let Carousel = new bootstrap.Carousel(myCarousel, {
-        interval: 3000,
-        wrap: true
-    })
-})
+// document.addEventListener('DOMContentLoaded', function () {
+//     let myCarousel = document.getElementById('carouselExample');
+//     let Carousel = new bootstrap.Carousel(myCarousel, {
+//         interval: 3000,
+//         wrap: true
+//     })
+// })
 
 SearchQuery();
 ReloadPage();

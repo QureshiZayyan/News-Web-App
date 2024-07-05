@@ -640,10 +640,6 @@ video {
   overflow: hidden;
 }
 
-.overflow-y-auto{
-  overflow-y: auto;
-}
-
 .rounded-md{
   border-radius: 0.375rem;
 }
@@ -752,8 +748,8 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-body{
-  background-color:rgb(245, 239, 239);
+body {
+  background-color: rgb(245, 239, 239);
 }
 
 .shadow-bs {
@@ -789,8 +785,8 @@ body {
   background-color: rgb(240, 237, 237);
 }
 
-.carousel-item img{
-  height: 20vh;
+.carousel-item img {
+  height: 70vh;
   /* object-fit: cover; */
 }
 
