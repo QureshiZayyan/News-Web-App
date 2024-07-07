@@ -775,8 +775,9 @@ body {
 }
 
 @media (max-width:640px) {
-  .cards-container{
-  }
+  /* .cards-container{
+     
+  } */
 
   .card {
     width: 60vw;

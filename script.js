@@ -1,3 +1,5 @@
+console.log('hello world');
+
 const cardsContainer = document.getElementById('cards-container');
 const Input = document.getElementById("input");
 const NewsCardTemplate = document.getElementById('News-Card');
@@ -41,7 +43,7 @@ const truncateText = (text, maxLength) => {
 }
 
 const FillDataInCard = (response) => {
-    
+
     response.articles.forEach(article => {
         if (!article.urlToImage && !article.url) return;
 
