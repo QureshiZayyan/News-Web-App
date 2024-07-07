@@ -5,7 +5,8 @@
 @tailwind utilities;
 
 body {
-  background-color: rgb(237, 237, 237);
+  background-color: rgb(232, 226, 226);
+  font-family: 'Poppins', 'sans-serif';
 }
 
 .shadow-bs {
@@ -39,4 +40,17 @@ body {
 
 #input {
   background-color: rgb(240, 237, 237);
+}
+
+@media (max-width:640px) {
+
+  .cards-container{
+     
+  }
+
+  .card {
+    width: 60vw;
+    grid-template-columns: repeat(1, 1fr);
+    place-content: center;
+  }
 }

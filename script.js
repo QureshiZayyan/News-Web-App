@@ -1,6 +1,7 @@
 const cardsContainer = document.getElementById('cards-container');
 const Input = document.getElementById("input");
 const NewsCardTemplate = document.getElementById('News-Card');
+const result = document.getElementById('result');
 
 const url = 'https://newsapi.org/v2/everything?q=';
 const apiKey = '8aeed9e210e1426fa21bf17f4c230b54';
@@ -24,11 +25,12 @@ const SearchQuery = () => {
         if (!Input.value) return;
         cardsContainer.innerHTML = '';
         const response = await FetchData(Input.value.trim());
-        if (response.articles[0] == null) {
-            cardsContainer.textContent = 'No Result';
+        if (response.articles.length === 0) {
+            result.textContent = `No Results for ${Input.value.trim()}`;
         }
         else {
             FillDataInCard(response);
+            result.textContent = `Results for ${Input.value.trim()}`;
         }
     });
 }
@@ -39,9 +41,7 @@ const truncateText = (text, maxLength) => {
 }
 
 const FillDataInCard = (response) => {
-
-    document.getElementById('results').textContent = `Total Results: ${response.totalResults}`
-
+    
     response.articles.forEach(article => {
         if (!article.urlToImage && !article.url) return;
 
@@ -64,12 +64,12 @@ const FillDataInCard = (response) => {
 }
 
 const ReloadPage = () => {
-    
+
     document.getElementById('reload').addEventListener('click', () => {
         window.location.reload();
         Input.value = '';
     });
-    
+
     window.addEventListener('load', function () {
         window.scrollTo(0, 0);
     });
