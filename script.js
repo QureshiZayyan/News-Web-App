@@ -23,7 +23,6 @@ const FetchData = async (query) => {
 
 const FillDataInCard = (response) => {
 
-
     response.articles.forEach(article => {
         if (!article.urlToImage && !article.url) return;
 
@@ -54,21 +53,21 @@ const SearchQuery = () => {
         try {
             const response = await FetchData(Input.value.trim());
 
-            if (!response || response.articles.length === 0) {
+            if (response.articles.length === 0) {
                 result.textContent = `No results for ${Input.value.trim()}`;
-                return;
+                // return;
+            }
+            else {
+                result.textContent = `Showing results for ${Input.value.trim()}`;
+                FillDataInCard(response);
             }
 
-            result.textContent = `Showing results for ${Input.value.trim()}`;
-            FillDataInCard(response);
         } catch (error) {
             console.error('Error fetching data:', error);
-            // Handle specific error cases here, e.g., showing an error message to the user
             result.textContent = 'Error fetching data. Please try again later.';
         }
     });
 }
-
 
 const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
