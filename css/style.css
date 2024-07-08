@@ -5,7 +5,12 @@
 @tailwind utilities;
 
 body {
+<<<<<<< HEAD:style.css
   background-color: rgb(253, 250, 250);
+=======
+  background-color: rgb(232, 226, 226);
+  font-family: 'Poppins', 'sans-serif';
+>>>>>>> 4382ab155dad79b7d01cd2a36026721add05ebf4:css/style.css
 }
 
 .shadow-bs {
@@ -41,7 +46,21 @@ body {
   background-color: rgb(240, 237, 237);
 }
 
+<<<<<<< HEAD:style.css
 .carousel-item img {
   height: 20vh;
   /* object-fit: cover; */
+=======
+@media (max-width:640px) {
+
+  /* .cards-container{
+     
+  } */
+
+  .card {
+    width: 60vw;
+    grid-template-columns: repeat(1, 1fr);
+    place-content: center;
+  }
+>>>>>>> 4382ab155dad79b7d01cd2a36026721add05ebf4:css/style.css
 }
