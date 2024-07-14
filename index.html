@@ -11,36 +11,36 @@
 <body>
 
     <header class="sticky top-[0]">
-        <nav class="flex justify-between items-center px-[20px] py-[10px] shadow-md bg-gray-900">
+        <nav class="flex justify-between items-center px-[20px] py-[10px] shadow-md bg-blue-200">
             <div class="heading">
                 <a href="#">
-                    <h2 id="reload" class="text-2xl font-extrabold cursor-pointer text-white">NewsWeb</h2>
+                    <h2 id="reload" class="text-2xl font-extrabold cursor-pointer text-black">NewsWeb</h2>
                 </a>
             </div>
 
             <div class="search">
                 <form>
                     <input type="text" name="" id="input"
-                        class="font-bold focus:outline-none w-[250px] py-[4px] px-[3.5px] text-black rounded-md"
+                        class="focus:outline-none w-[250px] py-[4px] px-[3.7px] text-black rounded-md"
                         placeholder="Search News">
                     <button id="btn"
-                        class="bg-blue-500 text-black px-[10px] py-[4px] rounded-md font-bold">Search</button>
+                        class="bg-blue-600 px-[6px] py-[4.6px] rounded-md font-bold text-white">Search</button>
                 </form>
             </div>
         </nav>
     </header>
 
-    <!-- <h3 id="result" class="text-center font-extrabold text-2xl"></h3> -->
+    <h3 id="result" class="text-center font-extrabold text-2xl mt-12"></h3>
 
     <div id="cards-container"
-        class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-[85px] place-items-center py-[50px]"></div>
+        class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-[80px] place-items-center my-[50px]"></div>
 
     <template id="news-card">
-        <div id="card" class="card md:w-[195px] lg:w-[230.4px] my-[20px] shadow-bs bg-slate-200 hover:opacity-[5]">
+        <div id="card" class="card md:w-[16vw] lg:w-[20vw] xl:w-[204.8px] my-[18px] shadow-bs hover:opacity-[5]">
             <div id="card-img" class="w-full">
                 <img src="" alt="" id="newsimg" class="h-[130px] rounded-t-[8px] w-full">
             </div>
-            <div id="news-content" class="h-[180px] px-[5px] py-[5px] bg-slate-50 text-black rounded-b-[8px] font-bold">
+            <div id="news-content" class="h-[180px] px-[5px] py-[5px] bg-white text-black rounded-b-[8px] text-sm">
                 <h2 id="news-desc"></h2>
                 <a href="" class="link inline-block hover:underline hover:text-blue-700 my-[2px]" target="_blank"
                     id="newslink"></a>

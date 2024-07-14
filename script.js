@@ -32,14 +32,14 @@ const SearchQuery = () => {
         }
         else {
             FillDataInCard(response);
-            result.textContent = `Results for ${Input.value.trim()}`;
+            result.textContent = `Showing Results for ${Input.value.trim()}`;
         }
     });
 }
 
 const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
+    return text.substring(0, maxLength);
 }
 
 const FillDataInCard = (response) => {
@@ -56,9 +56,9 @@ const FillDataInCard = (response) => {
         const publishedat = Clone.querySelector('#publishedat');
 
         newsimg.src = article.urlToImage;
-        NewsDesc.textContent = truncateText(article.description, 100);
+        NewsDesc.textContent = truncateText(article.description, 110);
         newslink.href = article.url;
-        newslink.textContent = "Read more";
+        newslink.textContent = "Read more...";
         publishedat.textContent = `PublishedAt: ${new Date(article.publishedAt).toLocaleDateString()}`;
 
         cardsContainer.appendChild(Clone);

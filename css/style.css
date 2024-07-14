@@ -1,12 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
-  background-color: rgb(232, 226, 226);
-  font-family: 'Poppins', 'sans-serif';
+  background-color: rgb(241, 234, 234);
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* For Chrome */
+  -moz-osx-font-smoothing: grayscale;
+  /* For Firefox on macOS */
+  text-rendering: optimizeLegibility;
+  /* General */
+  -webkit-font-feature-settings: 'kern';
+  font-feature-settings: 'kern';
+}
+
+input {
+  background-color: white;
+}
+
+input:focus,
+input:active {
+  background-color: white;
 }
 
 .shadow-bs {
@@ -38,19 +59,23 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-#input {
-  background-color: rgb(240, 237, 237);
-}
-
 @media (max-width:640px) {
 
-  /* .cards-container{
-     
-  } */
+  #cards-container {
+
+    /* margin: 10px auto;
+    padding: 0 auto; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* background-color: red; */
+  }
 
   .card {
     width: 60vw;
     grid-template-columns: repeat(1, 1fr);
-    place-content: center;
+    /* place-content: center;
+    margin: 10px auto; */
   }
 }
