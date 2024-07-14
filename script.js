@@ -3,7 +3,9 @@ console.log('hello world');
 const cardsContainer = document.getElementById('cards-container');
 const Input = document.getElementById("input");
 const NewsCardTemplate = document.getElementById('News-Card');
-const result = document.getElementById('result');
+
+const result = document.getElementById('results');
+
 
 const url = 'https://newsapi.org/v2/everything?q=';
 const apiKey = '8aeed9e210e1426fa21bf17f4c230b54';
@@ -18,23 +20,26 @@ const FetchData = async (query) => {
     } catch (er) {
         console.log(er);
     }
-}
+    finally {
+        console.log('request accepted');
+    }
 
-const SearchQuery = () => {
+    const SearchQuery = () => {
 
-    document.getElementById('btn').addEventListener('click', async (e) => {
-        e.preventDefault();
-        if (!Input.value) return;
-        cardsContainer.innerHTML = '';
-        const response = await FetchData(Input.value.trim());
-        if (response.articles.length === 0) {
-            result.textContent = `No Results for ${Input.value.trim()}`;
-        }
-        else {
-            FillDataInCard(response);
-            result.textContent = `Showing Results for ${Input.value.trim()}`;
-        }
-    });
+        document.getElementById('btn').addEventListener('click', async (e) => {
+            e.preventDefault();
+            if (!Input.value) return;
+            cardsContainer.innerHTML = '';
+            const response = await FetchData(Input.value.trim());
+            if (response.articles.length === 0) {
+                result.textContent = `No Results for ${Input.value.trim()}`;
+            }
+            else {
+                FillDataInCard(response);
+                result.textContent = `Showing Results for ${Input.value.trim()}`;
+            }
+        });
+    }
 }
 
 const truncateText = (text, maxLength) => {
@@ -84,6 +89,3 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 SearchQuery();
 ReloadPage();
-
-
-
