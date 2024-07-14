@@ -556,6 +556,10 @@ video {
   --tw-contain-style:  ;
 }
 
+.fixed{
+  position: fixed;
+}
+
 .sticky{
   position: sticky;
 }
@@ -564,8 +568,16 @@ video {
   top: 0;
 }
 
+.top-0{
+  top: 0px;
+}
+
 .z-\[1\]{
   z-index: 1;
+}
+
+.z-\[\]{
+  z-index: ;
 }
 
 .mx-\[80px\]{
@@ -725,6 +737,10 @@ video {
   line-height: 1.25rem;
 }
 
+.text-\[1\.1rem\]{
+  font-size: 1.1rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -741,6 +757,10 @@ video {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\]{
+  color: ;
 }
 
 .shadow-bs{
