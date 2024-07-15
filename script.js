@@ -4,7 +4,7 @@ const cardsContainer = document.getElementById('cards-container');
 const Input = document.getElementById("input");
 const NewsCardTemplate = document.getElementById('News-Card');
 
-const result = document.getElementById('results');
+const result = document.getElementById('result');
 
 
 const url = 'https://newsapi.org/v2/everything?q=';
@@ -23,7 +23,29 @@ const FetchData = async (query) => {
     finally {
         console.log('request accepted');
     }
+}
 
+const SearchQuery = () => {
+
+    document.getElementById('btn').addEventListener('click', async (e) => {
+        e.preventDefault();
+        if (!Input.value) return;
+        cardsContainer.innerHTML = '';
+        const response = await FetchData(Input.value.trim());
+        if (response.articles.length === 0) {
+            result.textContent = `No Results for ${Input.value.trim()}`;
+        }
+        else {
+            FillDataInCard(response);
+            result.textContent = `Showing Results for ${Input.value.trim()}`;
+        }
+    });
+}
+
+
+const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength);
 }
 
 const FillDataInCard = (response) => {
@@ -40,43 +62,13 @@ const FillDataInCard = (response) => {
         const publishedat = Clone.querySelector('#publishedat');
 
         newsimg.src = article.urlToImage;
-        NewsDesc.textContent = truncateText(article.description, 100);
+        NewsDesc.textContent = truncateText(article.description, 110);
         newslink.href = article.url;
-        newslink.textContent = "Read more";
+        newslink.textContent = "Read more...";
         publishedat.textContent = `PublishedAt: ${new Date(article.publishedAt).toLocaleDateString()}`;
 
         cardsContainer.appendChild(Clone);
     })
-}
-
-const SearchQuery = () => {
-    document.getElementById('btn').addEventListener('click', async (e) => {
-        e.preventDefault();
-        if (!Input.value) return;
-
-        cardsContainer.innerHTML = '';
-        try {
-            const response = await FetchData(Input.value.trim());
-
-            if (response.articles.length === 0) {
-                result.textContent = `No results for ${Input.value.trim()}`;
-                // return;
-            }
-            else {
-                result.textContent = `Showing results for ${Input.value.trim()}`;
-                FillDataInCard(response);
-            }
-
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            result.textContent = 'Error fetching data. Please try again later.';
-        }
-    });
-}
-
-const truncateText = (text, maxLength) => {
-    if (text.length <= maxLength) return text;
-    return text.substring(0, maxLength) + '...';
 }
 
 const ReloadPage = () => {
@@ -95,14 +87,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     const data = await FetchData('usa');
     FillDataInCard(data);
 })
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     let myCarousel = document.getElementById('carouselExample');
-//     let Carousel = new bootstrap.Carousel(myCarousel, {
-//         interval: 3000,
-//         wrap: true
-//     })
-// })
 
 SearchQuery();
 ReloadPage();
