@@ -84,7 +84,7 @@ const ReloadPage = () => {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
-    const data = await FetchData('usa');
+    const data = await FetchData('cricket');
     FillDataInCard(data);
 })
 
